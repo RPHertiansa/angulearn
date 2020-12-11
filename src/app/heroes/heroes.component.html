@@ -1,0 +1,35 @@
+<!--2-way data binding using ngmodel-->
+<!--  -->
+<!-- <h2>{{hero.name | uppercase}}</h2> -->
+<!-- <div>id: {{hero.id}}</div> -->
+<!-- <div>name: {{hero.name}}</div> -->
+<!--  -->
+<!-- <div> -->
+    <!-- <label> -->
+        <!-- <input placeholder="name" [(ngModel)]="hero.name" />  -->
+    <!-- </label> -->
+<!-- </div> -->
+
+<h2>Heroes List</h2>
+<div>
+  <label>Enter new Hero name: <input #heroName/></label>
+  <button (click)="add(heroName.value); heroName.value=''">Add</button>
+</div>
+
+<ul class="heroes">
+    <li *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}"> <!-- [class.selected]="hero === selectedHero" (click)="onSelect(hero)" -->
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <span><button class="delete" title="delete hero"(click)="delete(hero)">x</button></span>
+    </li>
+</ul>
+
+<!-- <h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul> -->
+
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> use property binding -->
